@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Colapsador TSP - Múltiplos Arquivos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #f3e5f5, #e0f7fa);
+            color: #4a148c;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #controls {
+            margin: 20px;
+        }
+        canvas.tsp-canvas {
+            border: 1px solid #4a148c;
+            margin: 10px;
+        }
+        .canvas-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tsp-block {
+            margin: 10px;
+        }
+        .tsp-meta {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        #results-table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 14px;
+            background: white;
+        }
+        #results-table th, #results-table td {
+            border: 1px solid #aaa;
+            padding: 4px 10px;
+        }
+        #chartContainer {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Colapsador TSP - Lote com Gráfico</h1>
+    <div id="controls">
+        <input type="file" id="fileInput" multiple accept=".tsp">
+        <label>A: <input type="number" id="paramA" value="0.003" step="0.001"></label>
+        <label>s: <input type="number" id="paramS" value="0.29" step="0.01"></label>
+        <label>N (harmônicas): <input type="number" id="paramN" value="1" step="1" min="1" max="10"></label>
+        <button onclick="runBatch()">🌀 Rodar em lote</button>
+    </div>
+    <table id="results-table">
+        <thead>
+            <tr><th>Arquivo</th><th>A</th><th>s</th><th>N</th><th>Custo</th><th>Tempo (s)</th></tr>
+        </thead>
+        <tbody id="results-body"></tbody>
+    </table>
+    <div id="chartContainer">
+        <canvas id="timeCostChart" height="300"></canvas>
+    </div>
+    <div class="canvas-container" id="canvasContainer"></div>
+
+    <script src="utils.js"></script>
+    <script src="tsp_parser.js"></script>
+    <script src="tsp_solver.js"></script>
+    <script>
+    let chartData = {
+        labels: [],
+        datasets: [{
+            label: 'Tempo vs Custo',
+            data: [],
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            tension: 0.1
+        }]
+    };
+
+    let timeCostChart = null;
+
+    function renderChart() {
+        const ctx = document.getElementById('timeCostChart').getContext('2d');
+        if (timeCostChart) timeCostChart.destroy();
+        timeCostChart = new Chart(ctx, {
+            type: 'scatter',
+            data: chartData,
+            options: {
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Tempo (s)' }
+                    },
+                    y: {
+                        title: { display: true, text: 'Custo' }
+                    }
+                }
+            }
+        });
+    }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
