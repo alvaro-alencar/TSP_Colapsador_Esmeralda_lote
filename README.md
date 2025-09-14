@@ -66,8 +66,8 @@ Esmeralda**.
 
 
 ## 🔎 Afinando os Parâmetros — Caso Berlin52
-| N (harmônicas) | Custo Obtido | Erro (%) | Tempo (s) |
 
+| N (harmônicas) | Custo Obtido | Erro (%) | Tempo (s) |
 |----------------|--------------|----------|-----------|
 | 4 | 8197.79 | +8.7% | 0.03 |
 | 5 | 8032.80 | +6.5% | 0.06 |
