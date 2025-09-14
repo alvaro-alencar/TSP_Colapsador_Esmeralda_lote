@@ -57,6 +57,8 @@ Esmeralda**.
 | st70 | 70 | 675 | 637.53 | -5.5% | 0.03 |
 | berlin52 | 52 | 7542 | 8032.80 | +6.5% | 0.06 |
 | berlin52 | 52 | 7542 | 7918.78 | +5.0% | 0.28 |
+
+
 *Resultados obtidos em execução direta no navegador, sem otimização de baixo nível.*
 
 
