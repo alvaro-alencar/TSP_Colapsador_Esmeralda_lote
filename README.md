@@ -45,40 +45,34 @@ Troca sistemática de arestas para eliminar cruzamentos.
 Redução adicional do custo total.
 
 
+## 📊 Resultados Iniciais
 
+Comparativo entre o **custo ótimo conhecido** (TSPLIB) e o **custo obtido pelo Colapsador
+Esmeralda**.
 
-
----
-
-📊 Resultados Iniciais
-
-Comparativo entre o custo ótimo conhecido (TSPLIB) e o custo obtido pelo Colapsador Esmeralda.
-
-Instância	Dimensão	Custo Ótimo	Custo Obtido	Erro (%)	Tempo (s)
-
-eil51	51	426	444.84	+4.4%	0.02
-eil101	101	629	688.97	+9.5%	0.14
-st70	70	675	637.53	-5.5%	0.03
-berlin52	52	7542	8032.80	+6.5%	0.06
-berlin52	52	7542	7918.78	+5.0%	0.28
-
-
-* Resultados obtidos em execução direta no navegador, sem otimização de baixo nível.
+| Instância | Dimensão | Custo Ótimo | Custo Obtido | Erro (%) | Tempo (s) |
+|-----------|----------|-------------|--------------|----------|-----------|
+| eil51 | 51 | 426 | 444.84 | +4.4% | 0.02 |
+| eil101 | 101 | 629 | 688.97 | +9.5% | 0.14 |
+| st70 | 70 | 675 | 637.53 | -5.5% | 0.03 |
+| berlin52 | 52 | 7542 | 8032.80 | +6.5% | 0.06 |
+| berlin52 | 52 | 7542 | 7918.78 | +5.0% | 0.28 |
+*Resultados obtidos em execução direta no navegador, sem otimização de baixo nível.*
 
 
 ---
 
-🔎 Afinando os Parâmetros — Caso Berlin52
 
-Variação do parâmetro N (número de harmônicas) no berlin52.tsp:
+## 🔎 Afinando os Parâmetros — Caso Berlin52
+| N (harmônicas) | Custo Obtido | Erro (%) | Tempo (s) |
 
-N (harmônicas)	Custo Obtido	Erro (%)	Tempo (s)
+|----------------|--------------|----------|-----------|
+| 4 | 8197.79 | +8.7% | 0.03 |
+| 5 | 8032.80 | +6.5% | 0.06 |
+| 6 | 7866.00 | +4.3% | 0.06 |
+| 7 | 8647.96 | +14.6% | 0.04 |
+| 111 | 7918.78 | +5.0% | 0.28 |
 
-4	8197.79	+8.7%	0.03
-5	8032.80	+6.5%	0.06
-6	7866.00	+4.3%	0.06
-7	8647.96	+14.6%	0.04
-111	7918.78	+5.0%	0.28
 
 
 👉 Mostra que há uma faixa ótima de ressonância dos parâmetros, onde a heurística converge para valores próximos ao ótimo conhecido.
